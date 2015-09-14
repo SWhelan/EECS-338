@@ -5,6 +5,8 @@
  * EECS 338
  * Assignment 1
  *
+ * 9/17/2015
+ *
  */
 
 #include <stdio.h>
@@ -13,50 +15,28 @@
 
 int main() {
     int i;
-	pid_t child1_fpid;
-	pid_t child2_fpid;
-	pid_t child3_fpid;
-	pid_t child4_fpid;	
+	pid_t child_fpid;	
 	int termination_status;
 	pid_t child_id;
 	printf("Hello, I am the parent process. My process id is %d. Let's get started!\n", getpid());
     
-    child1_fpid = fork();
+    for(i = 1; i < 5; i++){
+        child_fpid = fork();
     
-    if(child1_fpid < 0){
-	    perror("An error occured while executing fork.");
-	    return EXIT_FAILURE;
-    } else if (child1_fpid == 0){
-        return child1();
-    }
-    
-    sleep(2);
-    child2_fpid = fork();
-    
-    if(child2_fpid < 0){
-	    perror("An error occured while executing fork.");
-	    return EXIT_FAILURE;
-    } else if (child2_fpid == 0){
-        sleep(1);
-        return child2();
-    }
-    
-    child3_fpid = fork();
-    
-    if(child3_fpid < 0){
-	    perror("An error occured while executing fork.");
-	    return EXIT_FAILURE;
-    } else if (child3_fpid == 0){
-        return child3();
-    }
-    
-    child4_fpid = fork();
-    
-    if(child4_fpid < 0){
-	    perror("An error occured while executing fork.");
-	    return EXIT_FAILURE;
-    } else if (child4_fpid == 0){
-        return child4();
+        if(child_fpid < 0){
+	        perror("An error occured while executing fork.");
+	        return EXIT_FAILURE;
+        } else if (child_fpid == 0){
+            if(i == 1){
+                return child1();
+            } else if(i == 2){
+                return child2();
+            } else if(i == 3){
+                return child3();
+            } else {
+                return child4();
+            }
+        }
     }
 	
 	
@@ -78,6 +58,7 @@ int child1(){
 
 int child2(){
     int i;
+    sleep(1);
     for(i = 2; i < 11; i++){
         if(i % 2 == 0){
             printf("Child 2 process reporting in with %d choose %d: %d.\n", i, i-2, binomial_coefficient(i, i-2));
