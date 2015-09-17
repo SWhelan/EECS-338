@@ -9,19 +9,25 @@
  *
  */
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <sys/times.h>
 #include <time.h>
-#include <sys/time.h>
-#include <sys/resource.h>
-#include <errno.h>
+#include <unistd.h>
 
 // The largest 32 bit integer.
 #define LOOP_ITERATIONS 0x7fffffff
 
+// How long in seconds it takes to loop to the largest 32 bit integer
+#define LOOP_SLEEP_TIME 45
+
+// How long in seconds it takes to print ids
+#define PRINT_IDS_SLEEP_TIME 5
+
 int main() {
     int i;
+    const int number_of_children = 4;
 	pid_t child_fpid;	
 	int termination_status;
 	pid_t child_id;
@@ -31,12 +37,13 @@ int main() {
     print_ids();
     
     // Fork the four children processes.
-    for(i = 1; i < 5; i++){
+    for(i = 0; i < number_of_children; i++){
     
         child_fpid = fork();
     
         if(child_fpid < 0){
             // Handle if the fork() call failed.
+            fprintf(stderr, "errno %d: %d\n", errno, strerror(errno));
 	        perror("An error occurred while executing fork.");
 	        return EXIT_FAILURE;
         } else if (child_fpid == 0){
@@ -44,15 +51,16 @@ int main() {
             
             // Print the relevant ids for the child process.
             print_ids();
+            
             // Give each child time to print ids before forking the next child
-            sleep(3);
+            sleep(PRINT_IDS_SLEEP_TIME);
             
             // Call the appropriate method for each child
-            if(i == 1){
+            if(i == 0){
                 return child1();
-            } else if(i == 2){
+            } else if(i == 1){
                 return child2();
-            } else if(i == 3){
+            } else if(i == 2){
                 return child3();
             } else {
                 return child4();
@@ -60,12 +68,10 @@ int main() {
         }
     }
 	
-	// Wait for all four children to terminate.
-	sleep(30);
-	
-	// Indicate a child process has terminated.
+	// Wait for all the children to terminate and print a message for each one.
 	while((child_id = wait(&termination_status)) > 0){
-    	printf("A child process with id %d terminated with an exit status of %d.\n", child_id, termination_status);
+    	printf("My child process with pid %d terminated with an exit status of %d.\n", child_id, WEXITSTATUS(termination_status));
+    	print_separator();
     }
 	
 	// Print how long the parent process has been running.
@@ -89,10 +95,13 @@ int child1(){
 // The second child process.
 int child2(){
     // Waits a little bit to start for simpler synchronization.
-    sleep(2);
+    sleep(LOOP_SLEEP_TIME);
     
     // Prints binomial coefficients starting at 2 going up by 2 until 10.
     binomial_loop(2);
+    
+    // Print times
+    loop_and_print_times();
     
     return EXIT_SUCCESS;
 }
@@ -100,18 +109,27 @@ int child2(){
 // The third child process.
 int child3(){
     // Waits a little longer than the second child for simpler synchronization.
-    sleep(3);
+    sleep(LOOP_SLEEP_TIME + 1);
     
     // Prints binomial coefficients starting at 3 going up by 2 until 9
     binomial_loop(3);
+    
+    // Wait for Child 2 to loop and terminate.
+    sleep(LOOP_SLEEP_TIME);
+    
+    // Print times
+    loop_and_print_times();
     
     return EXIT_SUCCESS;
 }
 
 // The fourth child process.
 int child4(){
+    const char * ls_command = "ls";
+    char * const ls_arguments [] = {"ls", "-l", NULL};
+    
     // Waits until all binomial coefficients are printed.
-    sleep(15);
+    sleep(LOOP_SLEEP_TIME * 3);
     
     // Prints time statistics
     printf("Process (pid %d) will loop for a while and print how long it has taken then will run ls -l.\n", getpid());
@@ -119,7 +137,7 @@ int child4(){
     
     // Executes the command "ls -l"
     printf("Process (pid %d) executing ls -l:\n", getpid());
-    execlp("ls", "ls", "-l", (char *) NULL);
+    execvp(ls_command, ls_arguments);
     
     // If exec returns to the calling process there was an error running the command
     perror("Error occurred while calling exec on ls -l.");
@@ -128,17 +146,22 @@ int child4(){
 
 // Prints the pid, username, real and effective user ids, and group id.
 int print_ids(){
-    char * username;    
+    char * username;
+    printf("The current process id: %d\n", getpid());
+    
     username = (char *) cuserid((int*) NULL);
     if(username == NULL){
         perror("There was an error getting the username.");
         return EXIT_FAILURE;
+    } else {
+        printf("The username: %s\n", username);
     }
-    printf("The current process id: %d\n", getpid());
-    printf("The username: %s\n", username);
+    
+    // The man pages indicate the following system calls are always successful.
     printf("The real user id: %d\n", getuid());
     printf("The effective user id: %d\n", geteuid());
     printf("The group id: %d\n", getgid());
+    printf("The effective group id: %d\n", getegid());
     print_separator();
     return EXIT_SUCCESS;
 }
@@ -147,29 +170,31 @@ int print_ids(){
 int loop_and_print_times(){
     int i;
     time_t current_time;
-    struct rusage usage;
-    
-    // Loop for a while.
-    i = 0;
-    while(i < 10000){
-        i++;
-    }
-    
-    // Get CPU time information about current process.
-    if(getrusage(RUSAGE_SELF, &usage) < 0){
-        // Handle possible error while getting information.
-        perror("There was an error getting the system and user times for process.");
-        return errno;
-    }
+    struct tms time_info;
     
     // Get the number of seconds since the epoch.
     time(&current_time);
     
-    // Print information.
-    printf("The current process with pid %d is about to terminate.\n", getpid());
+    // Print something so it is clear something is happening.
+    printf("The current process with pid %d is about to loop and terminate.\n", getpid());
     printf("The current time is: %s", ctime(&current_time));
-    printf("The user CPU time is: %d\n", (int)usage.ru_utime.tv_usec);
-    printf("The system CPU time is: %d\n", (int)usage.ru_stime.tv_usec);
+    
+    // Loop for a while.
+    i = 0;
+    while(i < LOOP_ITERATIONS){
+        i++;
+    }
+    
+    // Get CPU time information about current process.
+    if(times(&time_info) == (clock_t) -1){
+        // Handle possible error while getting information.
+        perror("There was an error getting the system and user times for process.");
+        return EXIT_FAILURE;
+    }
+    
+    // Print information.
+    printf("The user CPU time is: %f\n", (double) time_info.tms_utime/CLOCKS_PER_SEC);
+    printf("The system CPU time is: %f\n", (double) time_info.tms_stime/CLOCKS_PER_SEC);
     print_separator();
     
     return EXIT_SUCCESS;
@@ -185,11 +210,9 @@ int binomial_loop(int start){
     if(start == 2){
         printf("Finished finding binomial coefficients.\n");
         print_separator();
-    }
-    if(start == 3){
+    } else {
         sleep(2);
     }
-    loop_and_print_times();
     return EXIT_SUCCESS;
 }
 
@@ -209,5 +232,5 @@ int factorial(int n){
 
 // Print a convenient separator.
 int print_separator(){
-    printf("======================================\n");
+    printf("============================================================================\n");
 }
