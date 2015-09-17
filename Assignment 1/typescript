@@ -1,37 +1,37 @@
-Script started on Wed Sep 16 12:04:08 2015
+Script started on Thu Sep 17 14:02:45 2015
 ]0;slw96@eecslinab3: ~slw96@eecslinab3:~$ make
 gcc -o assignment1 eecs338_assignment1_slw96.c
 ]0;slw96@eecslinab3: ~slw96@eecslinab3:~$ ./assignment1
-I am the parent process. My process id is 28655.
-The current process id: 28655
+I am the parent process. My process id is 18052.
+The current process id: 18052
 The username: slw96
 The real user id: 1585679258
 The effective user id: 1585679258
 The group id: 1585679258
 The effective group id: 1585679258
 ============================================================================
-The current process id: 28659
+The current process id: 18056
 The username: slw96
 The real user id: 1585679258
 The effective user id: 1585679258
 The group id: 1585679258
 The effective group id: 1585679258
 ============================================================================
-The current process id: 28658
+The current process id: 18055
 The username: slw96
 The real user id: 1585679258
 The effective user id: 1585679258
 The group id: 1585679258
 The effective group id: 1585679258
 ============================================================================
-The current process id: 28657
+The current process id: 18054
 The username: slw96
 The real user id: 1585679258
 The effective user id: 1585679258
 The group id: 1585679258
 The effective group id: 1585679258
 ============================================================================
-The current process id: 28656
+The current process id: 18053
 The username: slw96
 The real user id: 1585679258
 The effective user id: 1585679258
@@ -39,57 +39,59 @@ The group id: 1585679258
 The effective group id: 1585679258
 ============================================================================
 (n (n-2)) binomial coefficient computations of integers n=2, 3, 10, start now!
-The current process with pid 28656 is about to loop and terminate.
-The current time is: Wed Sep 16 12:04:19 2015
-The user CPU time is: 0.000474
-The system CPU time is: 0.000000
+The current process with pid 18053 is about to loop and terminate.
+The current time is: Thu Sep 17 14:02:55 2015
+The user CPU time is: 0.000930
+The system CPU time is: 0.000008
 ============================================================================
-My child process with pid 28656 terminated with an exit status of 0.
+My child process with pid 18053 terminated with an exit status of 0.
 ============================================================================
-Process (pid 28657) calculated binomial coefficient 1 with n = 2 and k = 0.
-Process (pid 28658) calculated binomial coefficient 3 with n = 3 and k = 1.
-Process (pid 28657) calculated binomial coefficient 6 with n = 4 and k = 2.
-Process (pid 28658) calculated binomial coefficient 10 with n = 5 and k = 3.
-Process (pid 28657) calculated binomial coefficient 15 with n = 6 and k = 4.
-Process (pid 28658) calculated binomial coefficient 21 with n = 7 and k = 5.
-Process (pid 28657) calculated binomial coefficient 28 with n = 8 and k = 6.
-Process (pid 28658) calculated binomial coefficient 36 with n = 9 and k = 7.
-Process (pid 28657) calculated binomial coefficient 45 with n = 10 and k = 8.
+Process (pid 18054) calculated binomial coefficient 1 with n = 2 and k = 0.
+Process (pid 18055) calculated binomial coefficient 3 with n = 3 and k = 1.
+Process (pid 18054) calculated binomial coefficient 6 with n = 4 and k = 2.
+Process (pid 18055) calculated binomial coefficient 10 with n = 5 and k = 3.
+Process (pid 18054) calculated binomial coefficient 15 with n = 6 and k = 4.
+Process (pid 18055) calculated binomial coefficient 21 with n = 7 and k = 5.
+Process (pid 18054) calculated binomial coefficient 28 with n = 8 and k = 6.
+Process (pid 18055) calculated binomial coefficient 36 with n = 9 and k = 7.
+Process (pid 18054) calculated binomial coefficient 45 with n = 10 and k = 8.
 Finished finding binomial coefficients.
 ============================================================================
-The current process with pid 28657 is about to loop and terminate.
-The current time is: Wed Sep 16 12:05:14 2015
-The user CPU time is: 0.000464
+The current process with pid 18054 is about to loop and terminate.
+The current time is: Thu Sep 17 14:04:35 2015
+The user CPU time is: 0.000936
 The system CPU time is: 0.000002
 ============================================================================
-My child process with pid 28657 terminated with an exit status of 0.
+My child process with pid 18054 terminated with an exit status of 0.
 ============================================================================
-The current process with pid 28658 is about to loop and terminate.
-The current time is: Wed Sep 16 12:06:00 2015
-The user CPU time is: 0.000466
-The system CPU time is: 0.000000
+The current process with pid 18055 is about to loop and terminate.
+The current time is: Thu Sep 17 14:06:06 2015
+The user CPU time is: 0.000939
+The system CPU time is: 0.000006
 ============================================================================
-My child process with pid 28658 terminated with an exit status of 0.
+My child process with pid 18055 terminated with an exit status of 0.
 ============================================================================
-Process (pid 28659) will loop for a while and print how long it has taken then will run ls -l.
-The current process with pid 28659 is about to loop and terminate.
-The current time is: Wed Sep 16 12:06:34 2015
-The user CPU time is: 0.000467
-The system CPU time is: 0.000000
+Process (pid 18056) will loop for a while and print how long it has taken then will run ls -l.
+The current process with pid 18056 is about to loop and terminate.
+The current time is: Thu Sep 17 14:07:25 2015
+The user CPU time is: 0.000940
+The system CPU time is: 0.000003
 ============================================================================
-Process (pid 28659) executing ls -l:
-total 36
+Process (pid 18056) executing ls -l:
+total 52
 -rw-rw-r-- 1 slw96 slw96   140 Sep 16 11:53 Makefile
--rwxrwxr-x 1 slw96 slw96 12280 Sep 16 12:04 assignment1
--rw-rw-r-- 1 slw96 slw96  6770 Sep 16 11:52 eecs338_assignment1_slw96.c
+-rwxrwxr-x 1 slw96 slw96 12280 Sep 17 14:02 assignment1
+-rw-rw-r-- 1 slw96 slw96  4918 Sep 17 13:59 assignmentoutput
+-rw-rw-r-- 1 slw96 slw96  6862 Sep 17 13:53 eecs338_assignment1_slw96.c
 -rw-r--r-- 1 slw96 slw96  8445 Aug 26 18:27 examples.desktop
--rw-rw-r-- 1 slw96 slw96     0 Sep 16 12:04 typescript
-My child process with pid 28659 terminated with an exit status of 0.
+-rw-rw-r-- 1 slw96 slw96     0 Sep 17 14:02 out
+-rw-rw-r-- 1 slw96 slw96  4856 Sep 16 12:09 typescript
+My child process with pid 18056 terminated with an exit status of 0.
 ============================================================================
-The current process with pid 28655 is about to loop and terminate.
-The current time is: Wed Sep 16 12:06:39 2015
-The user CPU time is: 0.000466
-The system CPU time is: 0.000000
+The current process with pid 18052 is about to loop and terminate.
+The current time is: Thu Sep 17 14:07:39 2015
+The user CPU time is: 0.000939
+The system CPU time is: 0.000004
 ============================================================================
 ]0;slw96@eecslinab3: ~slw96@eecslinab3:~$ exit
-Script done on Wed Sep 16 12:09:41 2015
+Script done on Thu Sep 17 14:08:47 2015

@@ -20,7 +20,7 @@
 #define LOOP_ITERATIONS 0x7fffffff
 
 // How long in seconds it takes to loop to the largest 32 bit integer
-#define LOOP_SLEEP_TIME 45
+#define LOOP_SLEEP_TIME 90
 
 // How long in seconds it takes to print ids
 #define PRINT_IDS_SLEEP_TIME 5
@@ -180,6 +180,12 @@ int loop_and_print_times(){
     printf("The current time is: %s", ctime(&current_time));
     
     // Loop for a while.
+    i = 0;
+    while(i < LOOP_ITERATIONS){
+        i++;
+    }
+    
+    // One loop was still zero time values
     i = 0;
     while(i < LOOP_ITERATIONS){
         i++;
