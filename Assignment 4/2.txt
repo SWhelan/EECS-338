@@ -1,0 +1,151 @@
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: A deposit with 175 dollars was created
+I 18773 give: 175
+--------------------------------------------
+pid: 18773
+balance: 675
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: A withdraw for 50 dollars was created
+I 18774 want: 50
+I 18774 withdrew: 50
+--------------------------------------------
+pid: 18774
+balance: 625
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: A withdraw for 30 dollars was created
+I 18775 want: 30
+I 18775 withdrew: 30
+--------------------------------------------
+pid: 18775
+balance: 595
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: A withdraw for 50 dollars was created
+I 18776 want: 50
+I 18776 withdrew: 50
+--------------------------------------------
+pid: 18776
+balance: 545
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: A withdraw for 60 dollars was created
+I 18777 want: 60
+I 18777 withdrew: 60
+--------------------------------------------
+pid: 18777
+balance: 485
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: A deposit with 50 dollars was created
+I 18778 give: 50
+--------------------------------------------
+pid: 18778
+balance: 535
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 6 will be created after sleeping for 6.
+FACTORY PROCESS INFO: A deposit with 225 dollars was created
+I 18790 give: 225
+--------------------------------------------
+pid: 18790
+balance: 760
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 6 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 7 will be created after sleeping for 2.
+FACTORY PROCESS INFO: A withdraw for 10 dollars was created
+I 18791 want: 10
+I 18791 withdrew: 10
+--------------------------------------------
+pid: 18791
+balance: 750
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 6 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 7 will be created after sleeping for 2.
+FACTORY PROCESS INFO: Customer number 8 will be created after sleeping for 9.
+FACTORY PROCESS INFO: A withdraw for 20 dollars was created
+I 18793 want: 20
+I 18793 withdrew: 20
+--------------------------------------------
+pid: 18793
+balance: 730
+wcount: 0
+first list amount: -1
+--------------------------------------------
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 6 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 7 will be created after sleeping for 2.
+FACTORY PROCESS INFO: Customer number 8 will be created after sleeping for 9.
+FACTORY PROCESS INFO: Customer number 9 will be created after sleeping for 1.
+FACTORY PROCESS INFO: Customer number 0 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 1 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 2 will be created after sleeping for 7.
+FACTORY PROCESS INFO: Customer number 3 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 4 will be created after sleeping for 3.
+FACTORY PROCESS INFO: Customer number 5 will be created after sleeping for 5.
+FACTORY PROCESS INFO: Customer number 6 will be created after sleeping for 6.
+FACTORY PROCESS INFO: Customer number 7 will be created after sleeping for 2.
+FACTORY PROCESS INFO: Customer number 8 will be created after sleeping for 9.
+FACTORY PROCESS INFO: Customer number 9 will be created after sleeping for 1.
+FACTORY PROCESS INFO: A deposit with 175 dollars was created
+I 18794 give: 175
+--------------------------------------------
+pid: 18794
+balance: 905
+wcount: 0
+first list amount: -1
+--------------------------------------------
