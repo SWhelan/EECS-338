@@ -1,0 +1,224 @@
+Script started on Thu Oct 29 19:32:00 2015
+slw96@eecslinab3:~$ make
+gcc -o Assignment4 Assignment4.c
+slw96@eecslinab3:~$ ./Assignment4
+FACTORY PROCESS INFO: Customer #0 will be created after sleeping for 4 sec.
+FACTORY PROCESS INFO: Customer #1 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 1 dollars was created
+I, 13932, want: 1
+I, 13932, withdrew: 1
+-----------------------------
+Shared memory info update:
+pid: 13932
+balance: 499
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #2 will be created after sleeping for 1 sec.
+FACTORY PROCESS INFO: A withdraw for 5 dollars was created
+I, 13933, want: 5
+I, 13933, withdrew: 5
+-----------------------------
+Shared memory info update:
+pid: 13933
+balance: 494
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #3 will be created after sleeping for 5 sec.
+FACTORY PROCESS INFO: A withdraw for 6 dollars was created
+I, 13934, want: 6
+I, 13934, withdrew: 6
+-----------------------------
+Shared memory info update:
+pid: 13934
+balance: 488
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #4 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 0 dollars was created
+I, 13935, want: 0
+I, 13935, withdrew: 0
+-----------------------------
+Shared memory info update:
+pid: 13935
+balance: 488
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #5 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #6 will be created after sleeping for 4 sec.
+FACTORY PROCESS INFO: A withdraw for 3 dollars was created
+I, 13937, want: 3
+I, 13937, withdrew: 3
+-----------------------------
+Shared memory info update:
+pid: 13937
+balance: 485
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 4 dollars was created
+I, 13936, want: 4
+I, 13936, withdrew: 4
+-----------------------------
+Shared memory info update:
+pid: 13936
+balance: 481
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #7 will be created after sleeping for 3 sec.
+FACTORY PROCESS INFO: A withdraw for 9 dollars was created
+I, 13938, want: 9
+I, 13938, withdrew: 9
+-----------------------------
+Shared memory info update:
+pid: 13938
+balance: 472
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #8 will be created after sleeping for 9 sec.
+FACTORY PROCESS INFO: A deposit with 3 dollars was created
+I, 13939, give: 3
+-----------------------------
+Shared memory info update:
+pid: 13939
+balance: 475
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #9 will be created after sleeping for 3 sec.
+FACTORY PROCESS INFO: A withdraw for 9 dollars was created
+I, 13940, want: 9
+I, 13940, withdrew: 9
+-----------------------------
+Shared memory info update:
+pid: 13940
+balance: 466
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #10 will be created after sleeping for 9 sec.
+FACTORY PROCESS INFO: A deposit with 9 dollars was created
+I, 13941, give: 9
+-----------------------------
+Shared memory info update:
+pid: 13941
+balance: 475
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #11 will be created after sleeping for 9 sec.
+FACTORY PROCESS INFO: A deposit with 0 dollars was created
+I, 13961, give: 0
+-----------------------------
+Shared memory info update:
+pid: 13961
+balance: 475
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #12 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #13 will be created after sleeping for 1 sec.
+FACTORY PROCESS INFO: A withdraw for 0 dollars was created
+I, 13963, want: 0
+I, 13963, withdrew: 0
+-----------------------------
+Shared memory info update:
+pid: 13963
+balance: 475
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 1 dollars was created
+I, 13962, want: 1
+I, 13962, withdrew: 1
+-----------------------------
+Shared memory info update:
+pid: 13962
+balance: 474
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #14 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #15 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 0 dollars was created
+I, 13965, want: 0
+I, 13965, withdrew: 0
+-----------------------------
+Shared memory info update:
+pid: 13965
+balance: 474
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 6 dollars was created
+I, 13964, want: 6
+I, 13964, withdrew: 6
+-----------------------------
+Shared memory info update:
+pid: 13964
+balance: 468
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #16 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #17 will be created after sleeping for 4 sec.
+FACTORY PROCESS INFO: A withdraw for 1 dollars was created
+I, 13970, want: 1
+I, 13970, withdrew: 1
+-----------------------------
+Shared memory info update:
+pid: 13970
+balance: 467
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 4 dollars was created
+I, 13969, want: 4
+I, 13969, withdrew: 4
+-----------------------------
+Shared memory info update:
+pid: 13969
+balance: 463
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #18 will be created after sleeping for 1 sec.
+FACTORY PROCESS INFO: A withdraw for 6 dollars was created
+I, 13989, want: 6
+I, 13989, withdrew: 6
+-----------------------------
+Shared memory info update:
+pid: 13989
+balance: 457
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: Customer #19 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 8 dollars was created
+I, 13991, want: 8
+I, 13991, withdrew: 8
+-----------------------------
+Shared memory info update:
+pid: 13991
+balance: 449
+wcount: 0
+first list amount: -1
+-----------------------------
+FACTORY PROCESS INFO: A deposit with 0 dollars was created
+I, 13992, give: 0
+-----------------------------
+Shared memory info update:
+pid: 13992
+balance: 449
+wcount: 0
+first list amount: -1
+-----------------------------
+Forked Processes terminated. Releasing shared memory.
+Thank you for banking with System 5 Semaphores. Have a nice day!
+slw96@eecslinab3:~$ exit
+Script done on Thu Oct 29 19:35:00 2015

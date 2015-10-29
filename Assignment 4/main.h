@@ -8,7 +8,7 @@
  * No environment settings/paths required
  * libraries required - see import statements below
  * no other involved files include anything else
- *
+ * Other information is in readme.md
  */
  
 #include <stdio.h>

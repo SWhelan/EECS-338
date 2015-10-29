@@ -1,0 +1,287 @@
+Script started on Thu Oct 29 19:18:33 2015
+slw96@eecslinab3:~$ make
+gcc -o Assignment4 Assignment4.c
+slw96@eecslinab3:~$ ./Assignment4
+FACTORY PROCESS INFO: Customer #0 will be created after sleeping for 3 sec.
+FACTORY PROCESS INFO: Customer #1 will be created after sleeping for 7 sec.
+FACTORY PROCESS INFO: A withdraw for 1200 dollars was created
+I, 13362, want: 1200
+I, 13362, can't withdraw 1200 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13362
+balance: 500
+wcount: 1
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #2 will be created after sleeping for 8 sec.
+FACTORY PROCESS INFO: A deposit with 400 dollars was created
+I, 13363, give: 400
+-----------------------------
+Shared memory info update:
+pid: 13363
+balance: 900
+wcount: 1
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #3 will be created after sleeping for 1 sec.
+FACTORY PROCESS INFO: A withdraw for 1050 dollars was created
+I, 13364, want: 1050
+I, 13364, can't withdraw 1050 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13364
+balance: 900
+wcount: 2
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #4 will be created after sleeping for 7 sec.
+FACTORY PROCESS INFO: A withdraw for 1050 dollars was created
+I, 13365, want: 1050
+I, 13365, can't withdraw 1050 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13365
+balance: 900
+wcount: 3
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #5 will be created after sleeping for 7 sec.
+FACTORY PROCESS INFO: A withdraw for 900 dollars was created
+I, 13366, want: 900
+I, 13366, can't withdraw 900 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13366
+balance: 900
+wcount: 4
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #6 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 1050 dollars was created
+I, 13367, want: 1050
+I, 13367, can't withdraw 1050 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13367
+balance: 900
+wcount: 5
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #7 will be created after sleeping for 7 sec.
+FACTORY PROCESS INFO: A withdraw for 1350 dollars was created
+I, 13368, want: 1350
+I, 13368, can't withdraw 1350 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13368
+balance: 900
+wcount: 6
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: Customer #8 will be created after sleeping for 9 sec.
+FACTORY PROCESS INFO: A deposit with 2800 dollars was created
+I, 13369, give: 2800
+-----------------------------
+Shared memory info update:
+pid: 13369
+balance: 3700
+wcount: 6
+first list amount: 1200
+-----------------------------
+I, 13362, got to withdraw 1200.
+-----------------------------
+Shared memory info update:
+pid: 13362
+balance: 2500
+wcount: 5
+first list amount: 1050
+-----------------------------
+I, 13364, got to withdraw 1050.
+-----------------------------
+Shared memory info update:
+pid: 13364
+balance: 1450
+wcount: 4
+first list amount: 1050
+-----------------------------
+I, 13365, got to withdraw 1050.
+-----------------------------
+Shared memory info update:
+pid: 13365
+balance: 400
+wcount: 3
+first list amount: 900
+-----------------------------
+FACTORY PROCESS INFO: Customer #9 will be created after sleeping for 7 sec.
+FACTORY PROCESS INFO: A withdraw for 1200 dollars was created
+I, 13370, want: 1200
+I, 13370, can't withdraw 1200 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13370
+balance: 400
+wcount: 4
+first list amount: 900
+-----------------------------
+FACTORY PROCESS INFO: Customer #10 will be created after sleeping for 8 sec.
+FACTORY PROCESS INFO: A deposit with 1200 dollars was created
+I, 13371, give: 1200
+-----------------------------
+Shared memory info update:
+pid: 13371
+balance: 1600
+wcount: 4
+first list amount: 900
+-----------------------------
+I, 13366, got to withdraw 900.
+-----------------------------
+Shared memory info update:
+pid: 13366
+balance: 700
+wcount: 3
+first list amount: 1050
+-----------------------------
+FACTORY PROCESS INFO: Customer #11 will be created after sleeping for 3 sec.
+FACTORY PROCESS INFO: A withdraw for 0 dollars was created
+I, 13372, want: 0
+I, 13372, can't withdraw 0 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13372
+balance: 700
+wcount: 4
+first list amount: 1050
+-----------------------------
+FACTORY PROCESS INFO: Customer #12 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #13 will be created after sleeping for 8 sec.
+FACTORY PROCESS INFO: A deposit with 400 dollars was created
+I, 13374, give: 400
+-----------------------------
+Shared memory info update:
+pid: 13374
+balance: 1100
+wcount: 4
+first list amount: 1050
+-----------------------------
+I, 13367, got to withdraw 1050.
+-----------------------------
+Shared memory info update:
+pid: 13367
+balance: 50
+wcount: 3
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 1200 dollars was created
+I, 13373, want: 1200
+I, 13373, can't withdraw 1200 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13373
+balance: 50
+wcount: 4
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: Customer #14 will be created after sleeping for 1 sec.
+FACTORY PROCESS INFO: A withdraw for 600 dollars was created
+I, 13375, want: 600
+I, 13375, can't withdraw 600 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13375
+balance: 50
+wcount: 5
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: Customer #15 will be created after sleeping for 4 sec.
+FACTORY PROCESS INFO: A withdraw for 450 dollars was created
+I, 13377, want: 450
+I, 13377, can't withdraw 450 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13377
+balance: 50
+wcount: 6
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: Customer #16 will be created after sleeping for 3 sec.
+FACTORY PROCESS INFO: A withdraw for 900 dollars was created
+I, 13378, want: 900
+I, 13378, can't withdraw 900 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13378
+balance: 50
+wcount: 7
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: Customer #17 will be created after sleeping for 6 sec.
+FACTORY PROCESS INFO: A withdraw for 0 dollars was created
+I, 13381, want: 0
+I, 13381, can't withdraw 0 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13381
+balance: 50
+wcount: 8
+first list amount: 1350
+-----------------------------
+FACTORY PROCESS INFO: Customer #18 will be created after sleeping for 0 sec.
+FACTORY PROCESS INFO: Customer #19 will be created after sleeping for 8 sec.
+FACTORY PROCESS INFO: A deposit with 2800 dollars was created
+I, 13389, give: 2800
+-----------------------------
+Shared memory info update:
+pid: 13389
+balance: 2850
+wcount: 8
+first list amount: 1350
+-----------------------------
+I, 13368, got to withdraw 1350.
+-----------------------------
+Shared memory info update:
+pid: 13368
+balance: 1500
+wcount: 7
+first list amount: 1200
+-----------------------------
+I, 13370, got to withdraw 1200.
+-----------------------------
+Shared memory info update:
+pid: 13370
+balance: 300
+wcount: 6
+first list amount: 0
+-----------------------------
+I, 13372, got to withdraw 0.
+-----------------------------
+Shared memory info update:
+pid: 13372
+balance: 300
+wcount: 5
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 1200 dollars was created
+I, 13388, want: 1200
+I, 13388, can't withdraw 1200 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13388
+balance: 300
+wcount: 6
+first list amount: 1200
+-----------------------------
+FACTORY PROCESS INFO: A withdraw for 150 dollars was created
+I, 13390, want: 150
+I, 13390, can't withdraw 150 and will wait.
+-----------------------------
+Shared memory info update:
+pid: 13390
+balance: 300
+wcount: 7
+first list amount: 1200
+-----------------------------
+Forked Processes terminated. Releasing shared memory.
+Thank you for banking with System 5 Semaphores. Have a nice day!
+slw96@eecslinab3:~$ exit
+Script done on Thu Oct 29 19:22:15 2015
