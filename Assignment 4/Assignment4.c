@@ -6,10 +6,11 @@ void print_shared_info(struct shared_variables * shared){
     printf("pid: %d\n", getpid());
     printf("balance: %d\n", shared->balance);
     printf("wcount: %d\n", shared->wcount);
-    printf("first list amount: %d\n", first_request_amount(shared->list));
+    printf("list_key: %d\n", shared->list_key);
+    printf("first list amount: %d\n", first_request_amount(shared->list_key));
     printf("--------------------------------------------\n");
 }
-
+/*
 int deposit(int amount){
     int semid, shmid;
 	struct shared_variables *shared;
@@ -80,10 +81,12 @@ int withdrawal(int amount){
     }
     return EXIT_SUCCESS;
 }
-
+*/
 int main(){
     int semid;
     int shmid;
+    int list_id;
+    struct linked_list * list;
     unsigned short seminit[NUMBER_OF_SEMAPHORES];
 	struct shared_variables * shared;
 	union semun semctlarg;
@@ -98,9 +101,23 @@ int main(){
 	shared=(struct shared_variables *)shmat(shmid, 0, 0);
 	shared->wcount = 0;
 	shared->balance = 500;
-	shared->list = (struct linked_list *)malloc(sizeof(struct linked_list));
+	shared->list_key = SHMKEY + 1;
+    //Initialize the shared list in shared memory
+    list_id = shmget(shared->list_key, sizeof(struct linked_list), 0777 | IPC_CREAT);
+    list = (struct linked_list *)shmat(list_id, 0, 0);
+    list->tail_key = -1;
+    list->head_key = -1;
+    list->self_key = shared->list_key;
+    list->size = 0;
+    print_shared_info(shared);
+    add_end_of_list(shared->list_key, 45);
+    print_shared_info(shared);
+    add_end_of_list(shared->list_key, 50);
+    print_shared_info(shared);
+    delete_first_request(shared->list_key);
+    print_shared_info(shared);
     
-    int i;
+   /* int i;
    	pid_t child_fpid;	
     int randVal;
     int amount;
@@ -128,5 +145,14 @@ int main(){
             }
         }
     }
+    wait(child_fpid);*/
+    //Release the semaphores
+    semctl(semid, NUMBER_OF_SEMAPHORES, IPC_RMID, 0);
+    
+    //Release the shared memory
+    //while(
+    //shmctl(shared->list->shared_id, IPC_RMID, 0);
+    //release_linked_list(shared->list_key);
+    shmctl(shmid, IPC_RMID, 0);
     return EXIT_SUCCESS;
 }

@@ -18,8 +18,8 @@
 #include <sys/sem.h>
 #include <unistd.h>
 
-#define SEMKEY 77
-#define SHMKEY 77
+#define SEMKEY 96
+#define SHMKEY 96
 
 #define NUMBER_OF_SEMAPHORES 2
 #define SEMAPHORE_MUTEX 0
@@ -28,7 +28,7 @@
 typedef struct shared_variables {
     int wcount;
     int balance;
-    struct linked_list * list;
+    int list_key;
 } shared_variables;
  
 // wait primitive
