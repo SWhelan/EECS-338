@@ -55,12 +55,25 @@ void add_end_of_list(int list_key, int new_value){
 void delete_first_request(int list_key){
     int list_id = shmget(list_key, 0, 0);
 	struct linked_list * list = (struct linked_list *)shmat(list_id, 0, 0);
-    linked_list_node * to_delete = list->head;
-    if(to_delete != NULL){
-        list->head = list->head->next;
-        free(to_delete); 
+    
+    if(list->size == 0){
+        return;
+    }
+    
+    int head_id = shmget(list->head_key, 0, 0);
+    struct linked_list_node * to_delete = (struct linked_list_node *)shmat(head_id, 0, 0);
+
+    if(list->size == 1){
+        list->head_key = -1;
+        list->tail_key = -1;
+    } else if(list->size == 2){
+        list->head_key = list->tail_key;
+        list->tail_key = -1;
+    } else {
+        list->head_key = to_delete->next_key;
     }
     list->size = list->size - 1;
+    shmctl(head_id, IPC_RMID, 0);
     return;
 }
 

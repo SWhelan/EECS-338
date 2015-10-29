@@ -116,6 +116,8 @@ int main(){
     print_shared_info(shared);
     delete_first_request(shared->list_key);
     print_shared_info(shared);
+    delete_first_request(shared->list_key);
+    print_shared_info(shared);
     
    /* int i;
    	pid_t child_fpid;	
