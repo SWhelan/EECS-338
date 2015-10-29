@@ -204,6 +204,6 @@ int main(){
     //Release the shared memory
     release_linked_list(shared->list_key);
     shmctl(shmid, IPC_RMID, 0);
-    printf("Thank you for banking with System 5 Semaphores. Have a nice day!");
+    printf("Thank you for banking with System 5 Semaphores. Have a nice day!\n");
     return EXIT_SUCCESS;
 }
