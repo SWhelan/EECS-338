@@ -2,87 +2,120 @@
 #include "linked_list.h"
 
 void print_shared_info(struct shared_variables * shared){
-    printf("--------------------------------------------\n");
+    printf("-----------------------------\n");
+    printf("Shared memory info update:\n");
     printf("pid: %d\n", getpid());
     printf("balance: %d\n", shared->balance);
     printf("wcount: %d\n", shared->wcount);
-    printf("list_key: %d\n", shared->list_key);
     printf("first list amount: %d\n", first_request_amount(shared->list_key));
-    printf("--------------------------------------------\n");
+    printf("-----------------------------\n");
 }
-/*
-int deposit(int amount){
-    int semid, shmid;
-	struct shared_variables *shared;
 
+int deposit(int amount){
+    // Gain access to shared memory
+    int semid;
+    int shmid;
+	struct shared_variables *shared;
 	semid = semget(SEMKEY, NUMBER_OF_SEMAPHORES, 0777);
+    if(semid == -1){
+        printf("There was an error getting the semaphores. Aborting.\n");
+        return EXIT_FAILURE;
+    }
 	shmid = shmget(SHMKEY, 0, 0);
+    if(shmid == -1){
+        printf("There was an error creating the shared memory. Aborting.\n");
+        return EXIT_FAILURE;
+    }
 	shared = (struct shared_variables *)shmat(shmid, 0, 0);
+    if(shared == (void *) -1){
+        printf("There was an error creating the shared memory. Aborting.\n");
+        return EXIT_FAILURE;
+    }
     
+    //Wait for mutex 
     P(semid, SEMAPHORE_MUTEX);
-    printf("I %d give: %d\n", getpid(), amount);
+    
+    //Deposit immediately 
+    printf("I, %d, give: %d\n", getpid(), amount);
     shared->balance = shared->balance + amount;
     print_shared_info(shared);
     if(shared->wcount == 0){
         //No withdrawal requests
         V(semid, SEMAPHORE_MUTEX);
-    } else if(first_request_amount(shared->list) > shared->balance){
-        //Not enough balance for first waiting withdrawal request
-        V(semid, SEMAPHORE_MUTEX);
     } else {
-        // The mutex is released by the waiting withdrawal customer
-        V(semid, SEMAPHORE_WLIST);
+        if(first_request_amount(shared->list_key) > shared->balance){
+            //Not enough balance for first waiting withdrawal request
+            V(semid, SEMAPHORE_MUTEX);
+        } else {
+            // Signal a waiting withdraw. The mutex is released by the waiting withdrawal customer
+            V(semid, SEMAPHORE_WLIST);
+        }
     }
     return EXIT_SUCCESS;
 }
 
-int withdrawal(int amount){
-    int semid, shmid;
+int withdraw(int amount){
+    // Gain access to shared memory
+    int semid;
+    int shmid;
 	struct shared_variables *shared;
-
 	semid = semget(SEMKEY, NUMBER_OF_SEMAPHORES, 0777);
+    if(semid == -1){
+        printf("There was an error getting the semaphores. Aborting.\n");
+        return EXIT_FAILURE;
+    }
 	shmid = shmget(SHMKEY, 0, 0);
+    if(shmid == -1){
+        printf("There was an error creating the shared memory. Aborting.\n");
+        return EXIT_FAILURE;
+    }
 	shared = (struct shared_variables *)shmat(shmid, 0, 0);
+    if(shared == (void *) -1){
+        printf("There was an error creating the shared memory. Aborting.\n");
+        return EXIT_FAILURE;
+    }
     
     P(semid, SEMAPHORE_MUTEX);
-    printf("I %d want: %d\n", getpid(), amount);
-    if(shared->wcount == 0 && shared->balance > amount){
+    printf("I, %d, want: %d\n", getpid(), amount);
+    if(shared->wcount == 0 && shared->balance >= amount){
         //withdraw
         shared->balance = shared->balance - amount;
-        printf("I %d withdrew: %d\n", getpid(), amount);
+        printf("I, %d, withdrew: %d\n", getpid(), amount);
         print_shared_info(shared);
         V(semid, SEMAPHORE_MUTEX);
     } else {
-        //Can't withdrawal increment count
+        //Can't withdrawal wait until its possible
         shared->wcount = shared->wcount + 1;
-        //and add amount to end of list
-        add_end_of_list(shared->list, amount);
-        printf("I %d can't withdraw %d and will wait.\n", getpid(), amount);
+        add_end_of_list(shared->list_key, amount);
+        printf("I, %d, can't withdraw %d and will wait.\n", getpid(), amount);
         print_shared_info(shared);
-        //let depositors deposit or more withdrawalers wait
         V(semid, SEMAPHORE_MUTEX);
-        //wait for a deposit to add enough money
         P(semid, SEMAPHORE_WLIST);
-        printf("I %d got to withdraw %d.\n", getpid(), first_request_amount(shared->list));
+        printf("I, %d, got to withdraw %d.\n", getpid(), first_request_amount(shared->list_key));
         //withdraw
-        shared->balance = shared->balance - first_request_amount(shared->list);
+        shared->balance = shared->balance - first_request_amount(shared->list_key);
         //remove self from list
-        delete_first_request(shared->list);
-        //and count
+        delete_first_request(shared->list_key);
+        //and decrement count
         shared->wcount = shared->wcount - 1;
         print_shared_info(shared);
-        if(shared->wcount > 1 && first_request_amount(shared->list) < shared->balance){
+        
+        if(shared->wcount >= 1 && first_request_amount(shared->list_key) < shared->balance){
             //another withdrawal is waiting and can go
             V(semid, SEMAPHORE_WLIST);
         } else {
-            //allow the depositor to go
+            //The next withdrawal if there is one can't go or there isn't a next withdrawal
             V(semid, SEMAPHORE_MUTEX);
         }
     }
     return EXIT_SUCCESS;
 }
-*/
+
 int main(){
+    // Seed the random number generator with the current time
+    srand(time(NULL));
+    
+    // Shared Memory Variables
     int semid;
     int shmid;
     int list_id;
@@ -91,6 +124,18 @@ int main(){
 	struct shared_variables * shared;
 	union semun semctlarg;
     
+    // Process generation and testing variables
+    int i;
+   	pid_t child_fpid;
+    int randVal;
+    int amount;
+    
+    pid_t pids[NUMBER_OF_CUSTOMERS];
+    for(i = 0; i < NUMBER_OF_CUSTOMERS; i++){
+        pids[i] = 0;
+    }
+    
+    // Shared Memory Initialization
     semid = semget(SEMKEY, NUMBER_OF_SEMAPHORES, 0777 | IPC_CREAT);
 	seminit[SEMAPHORE_MUTEX]=1;
 	seminit[SEMAPHORE_WLIST]=0;
@@ -102,33 +147,22 @@ int main(){
 	shared->wcount = 0;
 	shared->balance = 500;
 	shared->list_key = SHMKEY + 1;
-    //Initialize the shared list in shared memory
+    
+    // Initialize the linked list in shared memory
     list_id = shmget(shared->list_key, sizeof(struct linked_list), 0777 | IPC_CREAT);
     list = (struct linked_list *)shmat(list_id, 0, 0);
     list->tail_key = -1;
     list->head_key = -1;
     list->self_key = shared->list_key;
     list->size = 0;
-    print_shared_info(shared);
-    add_end_of_list(shared->list_key, 45);
-    print_shared_info(shared);
-    add_end_of_list(shared->list_key, 50);
-    print_shared_info(shared);
-    delete_first_request(shared->list_key);
-    print_shared_info(shared);
-    delete_first_request(shared->list_key);
-    print_shared_info(shared);
     
-   /* int i;
-   	pid_t child_fpid;	
-    int randVal;
-    int amount;
-    for(i = 0; i < 10; i++){
+    // Process generation 
+    for(i = 0; i < NUMBER_OF_CUSTOMERS; i++){
         randVal = rand() % 10;
-        printf("FACTORY PROCESS INFO: Customer number %d will be created after ", i);
-        printf("sleeping for %d.\n", randVal);
+        printf("FACTORY PROCESS INFO: Customer #%d will be created after sleeping for %d sec.\n", i, randVal);
         sleep(randVal);
         child_fpid = fork();
+        pids[i] = child_fpid;
         if(child_fpid < 0){
             // Handle if the fork() call failed.
             fprintf(stderr, "errno %d: %s\n", errno, strerror(errno));
@@ -136,25 +170,40 @@ int main(){
             return EXIT_FAILURE;
         } else if (child_fpid == 0){
             //Child process
-            if(rand() % 2 == 0){
-               amount = rand() % 10 * 25;
+            if(rand() % 10 > 7){
+               amount = rand() % 10 * 400;
                printf("FACTORY PROCESS INFO: A deposit with %d dollars was created\n", amount);
               return deposit(amount);
             } else {
-               amount = rand() % 10 * 10;
+               amount = rand() % 10 * 150;
                printf("FACTORY PROCESS INFO: A withdraw for %d dollars was created\n", amount);
-               return withdrawal(amount);
+               return withdraw(amount);
             }
+            break;
         }
     }
-    wait(child_fpid);*/
+    
+    /*
+     * Can't wait on processes as they may be stuck at semaphores when this terminates
+     * ie a withdrawal that was never able to withdraw
+     */
+    sleep(10);
+    
+    // Kill the processes
+    for(i = 0; i < NUMBER_OF_CUSTOMERS; i++){
+        if(pids[i] != 0){
+            kill(pids[i], SIGKILL);
+            wait(0);
+        }
+    }
+    printf("Forked Processes terminated. Releasing shared memory.\n");
+    
     //Release the semaphores
     semctl(semid, NUMBER_OF_SEMAPHORES, IPC_RMID, 0);
     
     //Release the shared memory
-    //while(
-    //shmctl(shared->list->shared_id, IPC_RMID, 0);
-    //release_linked_list(shared->list_key);
+    release_linked_list(shared->list_key);
     shmctl(shmid, IPC_RMID, 0);
+    printf("Thank you for banking with System 5 Semaphores. Have a nice day!");
     return EXIT_SUCCESS;
 }

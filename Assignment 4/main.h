@@ -3,10 +3,11 @@
  * slw96
  * 10/29/2015
  *
- * Runs on Ubuntu
- * Compiles with gcc - see Makefiles
+ * Runs on Linux - #102~prescise1-Ubuntu SMP
+ * Compiles with gcc - see Makefile
  * No environment settings/paths required
- * libraries required - see import statments below
+ * libraries required - see import statements below
+ * no other involved files include anything else
  *
  */
  
@@ -17,21 +18,26 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 #include <unistd.h>
+#include <string.h>
+#include <signal.h>
 
-#define SEMKEY 96
+#define SEMKEY 77
 #define SHMKEY 96
 
 #define NUMBER_OF_SEMAPHORES 2
 #define SEMAPHORE_MUTEX 0
 #define SEMAPHORE_WLIST 1
 
+#define NUMBER_OF_CUSTOMERS 20
+
+// Shared variables
 typedef struct shared_variables {
     int wcount;
     int balance;
     int list_key;
 } shared_variables;
  
-// wait primitive
+// Wait
 void P(int semid, int semaphore){
     struct sembuf psembuf;
     psembuf.sem_op = -1;
@@ -41,7 +47,7 @@ void P(int semid, int semaphore){
     return;
 }
 
-// signal primitive
+// Signal
 void V(int semid, int semaphore){
     struct sembuf vsembuf;
     vsembuf.sem_op = 1;
@@ -51,10 +57,10 @@ void V(int semid, int semaphore){
     return;
 }
 
-// required union for shared memory operations
+// Required union for shared memory operations
 union semun {
-    int             val;            /* value for SETVAL */
-    struct semid_ds *buf;           /* buffer for IPC_STAT & IPC_SET */
-    unsigned short  *array;         /* array for GETALL & SETALL */
-    struct seminfo *__buf;          /* buffer for IPC_INFO */
+    int val;               /* value for SETVAL */
+    struct semid_ds *buf;  /* buffer for IPC_STAT & IPC_SET */
+    unsigned short *array; /* array for GETALL & SETALL */
+    struct seminfo *__buf; /* buffer for IPC_INFO */
 };
