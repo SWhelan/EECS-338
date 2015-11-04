@@ -53,6 +53,10 @@ int main(void){
     
     // Initialize thread data and array of thread ids
     shared = malloc(sizeof(*shared));
+    if(shared == NULL){
+        perror("Failed to malloc shared memory.");
+        exit(EXIT_FAILURE);
+    }
     shared->readcount = 0;
     
     // Initialize Semaphores
@@ -106,6 +110,24 @@ int main(void){
     return EXIT_SUCCESS;
 }
 
+void sem_wait_helper(sem_t * sem){
+    int sem_op_status;
+    sem_op_status = sem_wait(sem);
+    if(sem_op_status == -1){
+        perror("There was an error waiting on the semaphore.");
+        exit(EXIT_FAILURE);
+    }
+}
+
+void sem_post_helper(sem_t * sem){
+    int sem_op_status;
+    sem_op_status = sem_post(sem);
+    if(sem_op_status == -1){
+        perror("There was an error signalling the semaphore.");
+        exit(EXIT_FAILURE);
+    }
+}
+
 // Reading thread
 void reading(void * data){
     // Get shared thread data
@@ -113,27 +135,27 @@ void reading(void * data){
     shared = (thread_common *) data;
     
     // Wait on mutex
-    sem_wait(&shared->mutex);
+    sem_wait_helper(&shared->mutex);
     // Increase read count and possibly wait on wrt
     shared->readcount = shared->readcount + 1;
     if(shared->readcount == 1){
         sem_wait(&shared->wrt);
     }
     // Signal mutex
-    sem_post(&shared->mutex);
+    sem_post_helper(&shared->mutex);
 
     // CS Reading
     print_status(READING);
     
     // Wait on mutex
-    sem_wait(&shared->mutex);
+    sem_wait_helper(&shared->mutex);
     shared->readcount = shared->readcount - 1;
     // If read count is now zero signal wrt
     if(shared->readcount == 0){
-        sem_post(&shared->wrt);
+        sem_post_helper(&shared->wrt);
     }
     // Signal mutex
-    sem_post(&shared->mutex);
+    sem_post_helper(&shared->mutex);
     // Exit
     pthread_exit((void*) data);
     return;
@@ -146,11 +168,11 @@ void writing(void * data){
     shared = (thread_common *) data;
     
     // Wait on the wrt semaphore
-    sem_wait(&shared->wrt);
+    sem_wait_helper(&shared->wrt);
     // CS Writing
     print_status(WRITING);
     // Signal the wrt semaphore
-    sem_post(&shared->wrt);
+    sem_post_helper(&shared->wrt);
     // Exit
     pthread_exit((void*) data);
     return;
