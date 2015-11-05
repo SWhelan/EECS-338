@@ -12,5 +12,9 @@ The thread waits on posix semaphores appropriately before entering CS.
 In CS each thread prints the current time, the thread id, the current thread status and the action.
 Where the action is either reading or writing.
 
+To run:
+make
+./Assignment5
+
 Twenty threads are created in each run for convenience two runs have been recorded and included ine
 run1.txt and run2.txt.

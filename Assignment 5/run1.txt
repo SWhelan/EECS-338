@@ -1,127 +1,167 @@
-Script started on Tue Nov  3 14:39:55 2015
+Script started on Thu Nov  5 12:57:57 2015
 slw96@eecslinab3:~$ make
 gcc -pthread -o Assignment5 main.c
 slw96@eecslinab3:~$ ./Assignment5
-THREAD FACTORY INFO: Thread #0 will be created after sleeping for 0 sec.
+THREAD FACTORY INFO: Thread #0 will be created after sleeping for 3 sec.
 THREAD FACTORY INFO: Thread #0 created to write.
-THREAD FACTORY INFO: Thread #1 will be created after sleeping for 0 sec.
-THREAD FACTORY INFO: Thread #1 created to read.
-THREAD FACTORY INFO: Thread #2 will be created after sleeping for 3 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:00 2015
-I thread, 12946, am in a detached state and I am reading!
------------------------------
------------------------------
-The current time is: Tue Nov  3 14:40:00 2015
-I thread, 12945, am in a joinable state and I am writing!
------------------------------
-THREAD FACTORY INFO: Thread #2 created to write.
-THREAD FACTORY INFO: Thread #3 will be created after sleeping for 3 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:03 2015
-I thread, 12947, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #1 will be created after sleeping for 3 sec.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:08 2015
+I thread, 12434, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #1 created to write.
+THREAD FACTORY INFO: Thread #2 will be created after sleeping for 4 sec.
+I am awake and the current time is: Thu Nov  5 12:58:11 2015
+I thread, 12434, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:11 2015
+I thread, 12435, will sleep for 3 seconds while in my CS.
+I am awake and the current time is: Thu Nov  5 12:58:14 2015
+I thread, 12435, am in a joinable state and I am writing!
+-------------------------------------------------------------
+THREAD FACTORY INFO: Thread #2 created to read.
+THREAD FACTORY INFO: Thread #3 will be created after sleeping for 0 sec.
 THREAD FACTORY INFO: Thread #3 created to write.
-THREAD FACTORY INFO: Thread #4 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:06 2015
-I thread, 12948, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #4 will be created after sleeping for 2 sec.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:15 2015
+I thread, 12437, will sleep for 3 seconds while in my CS.
 THREAD FACTORY INFO: Thread #4 created to read.
-THREAD FACTORY INFO: Thread #5 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:10 2015
-I thread, 12949, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #5 created to write.
-THREAD FACTORY INFO: Thread #6 will be created after sleeping for 1 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:14 2015
-I thread, 12950, am in a joinable state and I am writing!
------------------------------
-THREAD FACTORY INFO: Thread #6 created to read.
-THREAD FACTORY INFO: Thread #7 will be created after sleeping for 1 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:15 2015
-I thread, 12951, am in a joinable state and I am reading!
------------------------------
+THREAD FACTORY INFO: Thread #5 will be created after sleeping for 0 sec.
+THREAD FACTORY INFO: Thread #5 created to read.
+THREAD FACTORY INFO: Thread #6 will be created after sleeping for 3 sec.
+I am awake and the current time is: Thu Nov  5 12:58:18 2015
+I thread, 12437, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:18 2015
+I thread, 12436, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:18 2015
+I thread, 12439, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:18 2015
+I thread, 12438, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #6 created to write.
+THREAD FACTORY INFO: Thread #7 will be created after sleeping for 0 sec.
 THREAD FACTORY INFO: Thread #7 created to read.
-THREAD FACTORY INFO: Thread #8 will be created after sleeping for 1 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:16 2015
-I thread, 12952, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #8 created to read.
-THREAD FACTORY INFO: Thread #9 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:17 2015
-I thread, 12953, am in a joinable state and I am reading!
------------------------------
+THREAD FACTORY INFO: Thread #8 will be created after sleeping for 4 sec.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:20 2015
+I thread, 12441, will sleep for 3 seconds while in my CS.
+I am awake and the current time is: Thu Nov  5 12:58:21 2015
+I thread, 12436, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:21 2015
+I thread, 12439, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:21 2015
+I thread, 12438, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:23 2015
+I thread, 12441, am in a joinable state and I am reading!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:23 2015
+I thread, 12440, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #8 created to write.
+THREAD FACTORY INFO: Thread #9 will be created after sleeping for 0 sec.
 THREAD FACTORY INFO: Thread #9 created to write.
-THREAD FACTORY INFO: Thread #10 will be created after sleeping for 1 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:21 2015
-I thread, 12954, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #10 will be created after sleeping for 3 sec.
+I am awake and the current time is: Thu Nov  5 12:58:26 2015
+I thread, 12440, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:26 2015
+I thread, 12443, will sleep for 3 seconds while in my CS.
 THREAD FACTORY INFO: Thread #10 created to read.
-THREAD FACTORY INFO: Thread #11 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:22 2015
-I thread, 12955, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #11 created to read.
-THREAD FACTORY INFO: Thread #12 will be created after sleeping for 3 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:26 2015
-I thread, 12956, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #12 created to write.
-THREAD FACTORY INFO: Thread #13 will be created after sleeping for 0 sec.
+THREAD FACTORY INFO: Thread #11 will be created after sleeping for 3 sec.
+I am awake and the current time is: Thu Nov  5 12:58:29 2015
+I thread, 12443, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:29 2015
+I thread, 12442, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #11 created to write.
+THREAD FACTORY INFO: Thread #12 will be created after sleeping for 0 sec.
+THREAD FACTORY INFO: Thread #12 created to read.
+THREAD FACTORY INFO: Thread #13 will be created after sleeping for 1 sec.
 THREAD FACTORY INFO: Thread #13 created to write.
-THREAD FACTORY INFO: Thread #14 will be created after sleeping for 0 sec.
+THREAD FACTORY INFO: Thread #14 will be created after sleeping for 3 sec.
+I am awake and the current time is: Thu Nov  5 12:58:32 2015
+I thread, 12442, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:32 2015
+I thread, 12444, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:32 2015
+I thread, 12446, will sleep for 3 seconds while in my CS.
 THREAD FACTORY INFO: Thread #14 created to read.
-THREAD FACTORY INFO: Thread #15 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:29 2015
-I thread, 12959, am in a joinable state and I am reading!
------------------------------
------------------------------
-The current time is: Tue Nov  3 14:40:29 2015
-I thread, 12958, am in a joinable state and I am writing!
------------------------------
------------------------------
-The current time is: Tue Nov  3 14:40:29 2015
-I thread, 12957, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #15 will be created after sleeping for 0 sec.
 THREAD FACTORY INFO: Thread #15 created to read.
-THREAD FACTORY INFO: Thread #16 will be created after sleeping for 3 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:33 2015
-I thread, 12960, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #16 created to write.
-THREAD FACTORY INFO: Thread #17 will be created after sleeping for 1 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:36 2015
-I thread, 12961, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #16 will be created after sleeping for 4 sec.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:34 2015
+I thread, 12449, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:34 2015
+I thread, 12448, will sleep for 3 seconds while in my CS.
+I am awake and the current time is: Thu Nov  5 12:58:35 2015
+I thread, 12444, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:35 2015
+I thread, 12446, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:37 2015
+I thread, 12449, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:37 2015
+I thread, 12448, am in a joinable state and I am reading!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:37 2015
+I thread, 12445, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #16 created to read.
+THREAD FACTORY INFO: Thread #17 will be created after sleeping for 4 sec.
+I am awake and the current time is: Thu Nov  5 12:58:40 2015
+I thread, 12445, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:40 2015
+I thread, 12447, will sleep for 3 seconds while in my CS.
 THREAD FACTORY INFO: Thread #17 created to read.
-THREAD FACTORY INFO: Thread #18 will be created after sleeping for 2 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:37 2015
-I thread, 12962, am in a joinable state and I am reading!
------------------------------
-THREAD FACTORY INFO: Thread #18 created to write.
-THREAD FACTORY INFO: Thread #19 will be created after sleeping for 4 sec.
------------------------------
-The current time is: Tue Nov  3 14:40:39 2015
-I thread, 12963, am in a joinable state and I am writing!
------------------------------
-THREAD FACTORY INFO: Thread #19 created to write.
------------------------------
-The current time is: Tue Nov  3 14:40:43 2015
-I thread, 12964, am in a joinable state and I am writing!
------------------------------
+THREAD FACTORY INFO: Thread #18 will be created after sleeping for 1 sec.
+THREAD FACTORY INFO: Thread #18 created to read.
+THREAD FACTORY INFO: Thread #19 will be created after sleeping for 2 sec.
+I am awake and the current time is: Thu Nov  5 12:58:43 2015
+I thread, 12447, am in a joinable state and I am writing!
+-------------------------------------------------------------
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:43 2015
+I thread, 12450, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:43 2015
+I thread, 12451, will sleep for 3 seconds while in my CS.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:43 2015
+I thread, 12452, will sleep for 3 seconds while in my CS.
+THREAD FACTORY INFO: Thread #19 created to read.
+-------------------------------------------------------------
+The current time is: Thu Nov  5 12:58:45 2015
+I thread, 12453, will sleep for 3 seconds while in my CS.
+I am awake and the current time is: Thu Nov  5 12:58:46 2015
+I thread, 12450, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:46 2015
+I thread, 12451, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:46 2015
+I thread, 12452, am in a joinable state and I am reading!
+-------------------------------------------------------------
+I am awake and the current time is: Thu Nov  5 12:58:48 2015
+I thread, 12453, am in a joinable state and I am reading!
+-------------------------------------------------------------
 Freeing shared thread memory and exiting.
 slw96@eecslinab3:~$ exit
-Script done on Tue Nov  3 14:41:21 2015
+Script done on Thu Nov  5 12:59:18 2015

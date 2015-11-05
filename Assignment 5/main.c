@@ -188,9 +188,6 @@ void print_status(int action){
     pthread_attr_t attr;
     char *action_desc;
     
-    // Get current time
-    time(&current_time);
-    
     // Get current state of the thread
     state_status = pthread_attr_getdetachstate(&attr, &state);
     if(state_status != 0){
@@ -213,10 +210,18 @@ void print_status(int action){
     }
     
     // Print current time, thread id, thread state and action
-    printf("-----------------------------\n");
+    printf("-------------------------------------------------------------\n");
+    // Get current time
+    time(&current_time);
     printf("The current time is: %s", ctime(&current_time));
+    printf("I thread, %ld, will sleep for 3 seconds while in my CS.\n", syscall(SYS_gettid));
+    fflush(stdout);
+    sleep(3);
+    // Get current time
+    time(&current_time);
+    printf("I am awake and the current time is: %s", ctime(&current_time));
     printf("I thread, %ld, am in a %s state and I am %s!\n", syscall(SYS_gettid), state_desc, action_desc);
-    printf("-----------------------------\n");
+    printf("-------------------------------------------------------------\n");
     fflush(stdout);
     return;
 }
