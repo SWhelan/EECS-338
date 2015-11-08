@@ -28,7 +28,7 @@
 #define WRITING 1
 #define SEMAPHORE_COUNT 2
 #define THREAD_COUNT 20
- 
+  
 typedef struct thread_common {
     int readcount;
     sem_t mutex;
@@ -38,7 +38,7 @@ typedef struct thread_common {
 void reading(void * data);
 void writing(void * data);
 void print_status(int action);
-    
+
 int main(void){
     // Seed random number generator
     srand(time(NULL));
@@ -188,6 +188,10 @@ void print_status(int action){
     pthread_attr_t attr;
     char *action_desc;
     
+    struct timespec req, rem;
+    req.tv_sec = 3;
+    req.tv_nsec = 5;
+    
     // Get current state of the thread
     state_status = pthread_attr_getdetachstate(&attr, &state);
     if(state_status != 0){
@@ -216,7 +220,10 @@ void print_status(int action){
     printf("The current time is: %s", ctime(&current_time));
     printf("I thread, %ld, will sleep for 3 seconds while in my CS.\n", syscall(SYS_gettid));
     fflush(stdout);
-    sleep(3);
+    if(nanosleep(&req, &rem) < 0){
+        perror("Failed nanosleep call.");
+        exit(EXIT_FAILURE);
+    }
     // Get current time
     time(&current_time);
     printf("I am awake and the current time is: %s", ctime(&current_time));
