@@ -33,19 +33,16 @@ int run_client(int argc, char * argv[], int client_id){
         response = get_me_my_cookie_1(&a, client);
         
         if(*response == 1){
-            print_time();
-            printf("CLIENT: Yay I, %s, got a cookie.\n", name);
+            printf("[%s] CLIENT: Yay I, %s, got a cookie.\n", get_time(), name);
         }
         if(*response == -1){
-            print_time();
-            printf("CLIENT: Aw I, %s, have to wait for a cookie.\n", name);
+            printf("[%s] CLIENT: Aw I, %s, have to wait for a cookie.\n", get_time(), name);
         }
         
         if(*response == -2){
             keep_going = 1;
         }
     }
-    print_time();
-    printf("CLIENT: Aw I, %s, see that there are no more cookies. I will leave.\n", name);
+    printf("[%s] CLIENT: Aw I, %s, see that there are no more cookies. I will leave.\n", get_time(), name);
     return EXIT_SUCCESS;
 }

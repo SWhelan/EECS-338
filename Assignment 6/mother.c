@@ -7,17 +7,14 @@ int * get_me_my_cookie_1_svc(struct arguments * args, struct svc_req * rqstp){
     
     static int response;
     if(args->client_id == TINA){
-        print_time();
-        printf("MOTHER: Tina requests a cookie.\n");
+        printf("[%s] MOTHER: I received Tina's request for a cookie.\n", get_time());
     } else {
-        print_time();
-        printf("MOTHER: Judy requests a cookie.\n");
+        printf("[%s] MOTHER: I received Judy's request for a cookie.\n", get_time());
     }
     fflush(NULL);
     if(num_cookies == 0){
         response = -2;
-        print_time();
-        printf("MOTHER: No more cookies for you.\n");
+        printf("[%s] MOTHER: No more cookies for you.\n", get_time());
     } else if(args->client_id == TINA){
         response = 1;
         num_cookies--;
@@ -28,8 +25,7 @@ int * get_me_my_cookie_1_svc(struct arguments * args, struct svc_req * rqstp){
             num_cookies--;
             tina_count = 0;
         } else {
-            print_time();
-            printf("MOTHER: Tina hasn't gotten two cookies yet you'll have to wait.\n");
+            printf("[%s] MOTHER: Tina hasn't gotten two cookies yet you'll have to wait.\n", get_time());
             response = -1;
         }
     }
