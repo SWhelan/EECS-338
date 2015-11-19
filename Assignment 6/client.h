@@ -8,6 +8,8 @@ int run_client(int argc, char * argv[], int client_id){
     int * response = 0;
     int keep_going = 0;
     char * name;
+    int sleep_time = 0;
+    struct arguments args = {client_id};
     
     if(client_id == JUDY){
         name = "Judy";
@@ -26,11 +28,14 @@ int run_client(int argc, char * argv[], int client_id){
     if(client == NULL){
         clnt_pcreateerror("Error creating client.\n");
         exit(EXIT_FAILURE);
-    }    
+    }
+    
     while(keep_going == 0){
-        sleep(rand() % 5);
-        struct arguments a = {0, client_id};
-        response = get_me_my_cookie_1(&a, client);
+        sleep_time = rand() % 5;
+        printf("[%s] CLIENT: I, %s, will sleep for %d seconds.\n", get_time(), name, sleep_time);
+        sleep();
+        printf("[%s] CLIENT: I, %s, will ask for a cookie.\n", get_time(), name);
+        response = get_me_my_cookie_1(&args, client);
         
         if(*response == 1){
             printf("[%s] CLIENT: Yay I, %s, got a cookie.\n", get_time(), name);
@@ -43,6 +48,8 @@ int run_client(int argc, char * argv[], int client_id){
             keep_going = 1;
         }
     }
-    printf("[%s] CLIENT: Aw I, %s, see that there are no more cookies. I will leave.\n", get_time(), name);
+    
+    printf("[%s] CLIENT: Aw I, %s, see that there are no more cookies. I will go to bed.\n", get_time(), name);
+    bed_time_1(&args, client);
     return EXIT_SUCCESS;
 }
