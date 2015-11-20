@@ -5,6 +5,7 @@
 #define TINA 1
 #define JUDY 2
 
+// Returns the current time as a char *
 char * get_time(){
     time_t current_time;
     time(&current_time);
