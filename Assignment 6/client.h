@@ -64,7 +64,7 @@ int run_client(int argc, char * argv[], int client_id){
         // Sleep a random amount of time (0 to 4 seconds)
         sleep_time = rand() % 5;
         printf("[%s] CLIENT: I, %s, will sleep for %d seconds.\n", get_time(), name, sleep_time);
-        sleep();
+        sleep(sleep_time);
         
         // Ask for a cookie
         printf("[%s] CLIENT: I, %s, will ask for a cookie.\n", get_time(), name);

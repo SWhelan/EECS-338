@@ -1,0 +1,57 @@
+Script started on Thu Nov 19 20:47:52 2015
+slw96@eecslinab7:~$ make clean && rpcgen cookie.x && make
+rm -f cookie_clnt.c cookie_xdr.c cookie_svc.c cookie_xdr.c mother tina judy
+gcc -o mother cookie_svc.c cookie_xdr.c mother.c -lnsl
+gcc -o tina cookie_clnt.c cookie_xdr.c tina.c -lnsl
+gcc -o judy cookie_clnt.c cookie_xdr.c judy.c -lnsl
+slw96@eecslinab7:~$ ./judy eecslinab3.EECS.CWRU.edu
+[Thu Nov 19 20:48:08 2015] CLIENT: I, Judy, will sleep for 1 seconds.
+[Thu Nov 19 20:48:09 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:09 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:09 2015] CLIENT: I, Judy, will sleep for 3 seconds.
+[Thu Nov 19 20:48:12 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:12 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:12 2015] CLIENT: I, Judy, will sleep for 2 seconds.
+[Thu Nov 19 20:48:14 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:14 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:14 2015] CLIENT: I, Judy, will sleep for 1 seconds.
+[Thu Nov 19 20:48:15 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:15 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:15 2015] CLIENT: I, Judy, will sleep for 3 seconds.
+[Thu Nov 19 20:48:18 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:18 2015] CLIENT: Yay I, Judy, got a cookie.
+[Thu Nov 19 20:48:18 2015] CLIENT: I, Judy, will sleep for 2 seconds.
+[Thu Nov 19 20:48:20 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:20 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:20 2015] CLIENT: I, Judy, will sleep for 1 seconds.
+[Thu Nov 19 20:48:21 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:21 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:21 2015] CLIENT: I, Judy, will sleep for 0 seconds.
+[Thu Nov 19 20:48:21 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:21 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:21 2015] CLIENT: I, Judy, will sleep for 2 seconds.
+[Thu Nov 19 20:48:23 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:23 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:23 2015] CLIENT: I, Judy, will sleep for 3 seconds.
+[Thu Nov 19 20:48:26 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:26 2015] CLIENT: Yay I, Judy, got a cookie.
+[Thu Nov 19 20:48:26 2015] CLIENT: I, Judy, will sleep for 3 seconds.
+[Thu Nov 19 20:48:29 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:29 2015] CLIENT: Yay I, Judy, got a cookie.
+[Thu Nov 19 20:48:29 2015] CLIENT: I, Judy, will sleep for 3 seconds.
+[Thu Nov 19 20:48:32 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:32 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:32 2015] CLIENT: I, Judy, will sleep for 4 seconds.
+[Thu Nov 19 20:48:36 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:36 2015] CLIENT: Yay I, Judy, got a cookie.
+[Thu Nov 19 20:48:36 2015] CLIENT: I, Judy, will sleep for 0 seconds.
+[Thu Nov 19 20:48:36 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:36 2015] CLIENT: Aw I, Judy, have to wait for a cookie.
+[Thu Nov 19 20:48:36 2015] CLIENT: I, Judy, will sleep for 4 seconds.
+[Thu Nov 19 20:48:40 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:40 2015] CLIENT: Yay I, Judy, got a cookie.
+[Thu Nov 19 20:48:40 2015] CLIENT: I, Judy, will sleep for 4 seconds.
+[Thu Nov 19 20:48:44 2015] CLIENT: I, Judy, will ask for a cookie.
+[Thu Nov 19 20:48:44 2015] CLIENT: Aw I, Judy, see that there are no more cookies. I will go to bed.
+slw96@eecslinab7:~$ exit
+Script done on Thu Nov 19 20:49:19 2015

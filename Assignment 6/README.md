@@ -31,3 +31,5 @@ client.h - shared file for both tia and judy that is the actual client code
 tina.c - the favorite child just calls run_client in client.h
 judy.c - the other child just calls run_client in client.h
 common.h - shared by all a get time method and imports of standard stuff and cookie.h
+
+The test/example runs are found in mother.txt, judy.txt, and tina.txt.

@@ -1,0 +1,76 @@
+Script started on Thu Nov 19 20:47:39 2015
+slw96@eecslinab3:~$ make clean && rpcgen cookie.x && make
+rm -f cookie_clnt.c cookie_xdr.c cookie_svc.c cookie_xdr.c mother tina judy
+gcc -o mother cookie_svc.c cookie_xdr.c mother.c -lnsl
+gcc -o tina cookie_clnt.c cookie_xdr.c tina.c -lnsl
+gcc -o judy cookie_clnt.c cookie_xdr.c judy.c -lnsl
+slw96@eecslinab3:~$ ./mother
+[Thu Nov 19 20:48:09 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:09 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:12 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:12 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:14 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:14 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:14 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:14 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:15 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:15 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:17 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:17 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:18 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:18 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:18 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:18 2015] MOTHER: I gave Judy a cookie.
+[Thu Nov 19 20:48:20 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:20 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:21 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:21 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:21 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:21 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:21 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:21 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:23 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:23 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:25 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:25 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:26 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:26 2015] MOTHER: I gave Judy a cookie.
+[Thu Nov 19 20:48:28 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:28 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:28 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:28 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:29 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:29 2015] MOTHER: I gave Judy a cookie.
+[Thu Nov 19 20:48:30 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:30 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:32 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:32 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:34 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:34 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:36 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:36 2015] MOTHER: I gave Judy a cookie.
+[Thu Nov 19 20:48:36 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:36 2015] MOTHER: Tina hasn't had two cookies yet you have to wait.
+[Thu Nov 19 20:48:37 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:37 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:38 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:38 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:40 2015] MOTHER: I gave Judy a cookie.
+[Thu Nov 19 20:48:43 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:43 2015] MOTHER: I gave Tina a cookie.
+[Thu Nov 19 20:48:44 2015] MOTHER: I received Judy's request for a cookie.
+[Thu Nov 19 20:48:44 2015] MOTHER: No more cookies for you.
+[Thu Nov 19 20:48:44 2015] MOTHER: Judy went to bed.
+[Thu Nov 19 20:48:47 2015] MOTHER: I received Tina's request for a cookie.
+[Thu Nov 19 20:48:47 2015] MOTHER: No more cookies for you.
+[Thu Nov 19 20:48:47 2015] MOTHER: Tina went to bed.
+[Thu Nov 19 20:48:47 2015] MOTHER: Everyone went to bed now I can have a cookie.
+slw96@eecslinab3:~$ exit
+Script done on Thu Nov 19 20:49:22 2015
